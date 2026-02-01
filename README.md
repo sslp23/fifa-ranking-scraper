@@ -13,7 +13,7 @@ This project contains a Python script to scrape historical FIFA world rankings f
 
 ## Automation
 
-This scraper is set up to run automatically on the first day of every month via GitHub Actions. It will fetch the latest FIFA rankings and update the `data/resulting_data.csv` file directly in the repository. You can also manually trigger the workflow from the 'Actions' tab in your GitHub repository.
+This scraper is set up to run automatically on the 1st and 15th of every month via GitHub Actions. It will fetch the latest FIFA rankings and update the `data/resulting_data.csv` file directly in the repository. You can also manually trigger the workflow from the 'Actions' tab in your GitHub repository.
 
 ## Requirements
 
