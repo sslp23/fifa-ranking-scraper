@@ -32,7 +32,10 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add data/resulting_data.csv
-        git diff --cached --exit-code || git commit -m "Automated: Update FIFA rankings data"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if ! git diff --staged --quiet; then
+          git commit -m "Automated: Update FIFA rankings data"
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push
+        else
+          echo "No changes to commit"
+        fi
